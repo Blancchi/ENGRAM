@@ -65,7 +65,9 @@ ENGRAM is a mobile-first AI-assisted personal diary system.
 - Initial backend dependencies installed.
 - FastAPI /health endpoint works.
 - FastAPI /docs endpoint works.
+- Backend Pytest suite with /health tests (Step 5.5).
 
 ## Current Task
-Inspect the project and prepare for backend automated testing.
-Do not implement tests or modify application code until approved.
+Step 5.6: SQLite + SQLAlchemy database foundation.
+Database config, engine, declarative Base, session factory, `get_db` dependency,
+and isolated database tests. No models, CRUD endpoints, AI, Prolog, or APL yet.
