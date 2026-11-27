@@ -1,0 +1,463 @@
+{
+  "_meta": {
+    "fictional": true,
+    "notice": "All people, places, events and diary text in this file are invented for testing. They are not real diary records.",
+    "task": "Kaneo Task 1.07",
+    "schema_version": "0.1-draft",
+    "reference_clock": "2026-12-01T09:00:00+08:00",
+    "provisional": "Entry types 'letter' and 'legacy_lesson' are provisional subclasses pending the UML class diagram (Task 2.02). The access_policy format is a neutral fixture format, not APL syntax and not Prolog facts."
+  },
+  "people": [
+    { "id": "OWN-01", "name": "Tala Villareal", "role": "owner", "relationship": null, "registered": true },
+    { "id": "BEN-01", "name": "Dalisay Villareal", "role": "beneficiary", "relationship": "daughter", "registered": true },
+    { "id": "BEN-02", "name": "Bayani Villareal", "role": "beneficiary", "relationship": "son", "registered": true },
+    { "id": "BEN-03", "name": "Marco Quintos", "role": "beneficiary", "relationship": "spouse", "registered": true },
+    { "id": "VER-01", "name": "Rina Solis", "role": "release_verifier", "relationship": null, "registered": true },
+    { "id": "REQ-X", "name": "Unregistered requester", "role": "unregistered", "relationship": null, "registered": false }
+  ],
+  "vaults": [
+    {
+      "id": "VAULT-A",
+      "owner": "OWN-01",
+      "status": "released",
+      "trigger_verified": true,
+      "verified_by": "VER-01",
+      "missed_checkins": 0,
+      "policy_frozen": true
+    },
+    {
+      "id": "VAULT-B",
+      "owner": "OWN-01",
+      "status": "sealed",
+      "trigger_verified": false,
+      "verified_by": null,
+      "missed_checkins": 3,
+      "policy_frozen": false
+    }
+  ],
+  "entries": [
+    {
+      "id": "E-01",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2024-01-03T07:15:00+08:00",
+      "title": "Planting calamansi seedlings",
+      "content": "We planted six calamansi seedlings along the back fence this morning. The children argued about whose row would grow first. I wrote their names on little sticks so we can check in a year.",
+      "tags": ["family", "garden"],
+      "writing_mode": "verbatim",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null },
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-02",
+      "vault": "VAULT-A",
+      "type": "letter",
+      "created_at": "2024-02-14T21:40:00+08:00",
+      "title": "Anniversary letter to Marco",
+      "content": "Marco, thirty-seven years and you still hum off-key while washing the dishes. Thank you for every early jeepney ride to the market. I would choose this ordinary life with you again.",
+      "tags": ["love", "anniversary"],
+      "writing_mode": "review",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-03",
+      "vault": "VAULT-A",
+      "type": "legacy_lesson",
+      "created_at": "2024-03-09T18:05:00+08:00",
+      "title": "Cooking the family adobo",
+      "content": "Brown the chicken first, then add vinegar and do not stir until it boils. A little sugar at the end balances the soy sauce. Taste it twice before you serve it.",
+      "tags": ["recipe", "family"],
+      "writing_mode": "light_fix",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null },
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-04",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2024-04-22T22:30:00+08:00",
+      "title": "Worries before a clinic check-up",
+      "content": "I could not sleep thinking about tomorrow's check-up at the clinic. I have not told anyone yet. I will decide what to share after I hear the results.",
+      "tags": ["health", "private"],
+      "writing_mode": "verbatim",
+      "access_policy": {
+        "owner_only": true,
+        "grants": [],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-05",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2024-05-01T06:50:00+08:00",
+      "title": "Thoughts on Lola's sari-sari store",
+      "content": "Lola's little store taught me how to count change before I could read well. Dalisay asked about it again last week. Maybe she should hear the whole story someday.",
+      "tags": ["reflection", "family"],
+      "writing_mode": "review",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-06",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2024-06-12T10:00:00+08:00",
+      "title": "Independence Day parade",
+      "content": "We watched the Independence Day parade near the town hall. Bayani waved a small flag the whole time. The marching band played the same song three times.",
+      "tags": ["memory", "family"],
+      "writing_mode": "light_fix",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null },
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-07",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2024-07-19T23:10:00+08:00",
+      "title": "Argument about a college course",
+      "content": "Bayani and I argued about which college course he should take. I said things I regret. I want to apologize properly before writing more about it.",
+      "tags": ["family", "conflict"],
+      "writing_mode": "verbatim",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null },
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": [
+          { "beneficiary": "BEN-02" }
+        ]
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-08",
+      "vault": "VAULT-A",
+      "type": "letter",
+      "created_at": "2024-08-30T16:20:00+08:00",
+      "title": "For Dalisay's 30th birthday",
+      "content": "Dalisay, by the time you read this you will be thirty. I hope you still sing while you cook. Open the small wooden box in the cabinet; it has your first drawing.",
+      "tags": ["milestone", "family"],
+      "writing_mode": "review",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": "2030-08-30T00:00:00+08:00" }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-09",
+      "vault": "VAULT-A",
+      "type": "legacy_lesson",
+      "created_at": "2024-09-15T13:45:00+08:00",
+      "title": "Fixing the roof before typhoon season",
+      "content": "Check the roof sheets every August, before the typhoons arrive. Replace rusted nails with roofing screws. Never climb up alone and never in the rain.",
+      "tags": ["home", "safety"],
+      "writing_mode": "light_fix",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null },
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": [
+          { "beneficiary": "BEN-03" }
+        ]
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-10",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2024-10-31T20:00:00+08:00",
+      "title": "Undas cemetery visit",
+      "content": "We cleaned the family tomb and lit candles for Undas. The children brought sandwiches and stayed until dark. It felt peaceful rather than sad this year.",
+      "tags": ["memory", "family"],
+      "writing_mode": "verbatim",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null },
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-11",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2024-11-11T08:30:00+08:00",
+      "title": "Learning the ukulele",
+      "content": "I finally started learning the ukulele from online videos. My fingers hurt after ten minutes. Bayani promised to teach me three chords on Sunday.",
+      "tags": ["hobby"],
+      "writing_mode": "light_fix",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-02", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-12",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2024-12-24T23:55:00+08:00",
+      "title": "Noche Buena traditions",
+      "content": "Noche Buena again: queso de bola, spaghetti and too much ham. We opened one gift each at midnight. Marco fell asleep before the last song.",
+      "tags": ["memory", "holiday"],
+      "writing_mode": "review",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null },
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-13",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2025-01-20T19:25:00+08:00",
+      "title": "Regrets about a business loan",
+      "content": "The small loan for the bakery idea did not work out. I am still paying it back quietly. This stays between me and this diary for now.",
+      "tags": ["finance", "private"],
+      "writing_mode": "verbatim",
+      "access_policy": {
+        "owner_only": true,
+        "grants": [],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-14",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2025-02-28T07:05:00+08:00",
+      "title": "First jeepney ride with a grandchild",
+      "content": "Took my grandchild on her first jeepney ride today. She counted every stop out loud. The driver laughed and let her pass the fare forward.",
+      "tags": ["family", "grandchild"],
+      "writing_mode": "light_fix",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-15",
+      "vault": "VAULT-A",
+      "type": "letter",
+      "created_at": "2025-04-17T21:15:00+08:00",
+      "title": "To Bayani about forgiveness",
+      "content": "Bayani, I was wrong about your course. You chose well, and you were braver than I was at your age. Please forgive your stubborn mother.",
+      "tags": ["family", "forgiveness"],
+      "writing_mode": "review",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-02", "available_from": "2025-12-01T00:00:00+08:00" }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-16",
+      "vault": "VAULT-A",
+      "type": "legacy_lesson",
+      "created_at": "2025-06-05T12:00:00+08:00",
+      "title": "The sobre envelope budget",
+      "content": "Every payday, split the money into labeled envelopes: food, school, bills and savings. When an envelope is empty, that category is done for the month. Savings go in first, not last.",
+      "tags": ["finance", "lesson"],
+      "writing_mode": "light_fix",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null },
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-17",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2025-08-08T17:40:00+08:00",
+      "title": "Hospital stay notes",
+      "content": "Third day in the hospital ward. The nurses are kind and the food is bland. Marco stays every night; I do not want the children to worry yet.",
+      "tags": ["health"],
+      "writing_mode": "verbatim",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": [
+          { "beneficiary": "BEN-01" },
+          { "beneficiary": "BEN-02" }
+        ]
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-18",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2025-10-10T09:10:00+08:00",
+      "title": "What I hope my children remember",
+      "content": "I hope my children remember the Sunday breakfasts more than the arguments. I hope they keep watering the calamansi. And I hope they call each other often.",
+      "tags": ["reflection", "family"],
+      "writing_mode": "review",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": "2026-06-01T00:00:00+08:00" },
+          { "beneficiary": "BEN-02", "available_from": "2026-06-01T00:00:00+08:00" }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-19",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2026-01-01T00:05:00+08:00",
+      "title": "New Year fireworks",
+      "content": "The neighbors' fireworks lasted almost an hour. We wrote our resolutions on paper and sealed them in a jar. We agreed to open the jar next New Year.",
+      "tags": ["family", "holiday"],
+      "writing_mode": "verbatim",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null },
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-20",
+      "vault": "VAULT-A",
+      "type": "letter",
+      "created_at": "2026-03-21T15:30:00+08:00",
+      "title": "Open on our 40th anniversary",
+      "content": "Marco, if you are reading this on our fortieth anniversary, make the champorado the way I taught you. Put on the old radio station. Dance in the kitchen even if no one is watching.",
+      "tags": ["love", "anniversary"],
+      "writing_mode": "review",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-03", "available_from": "2027-02-14T00:00:00+08:00" }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-21",
+      "vault": "VAULT-B",
+      "type": "diary",
+      "created_at": "2026-07-04T18:00:00+08:00",
+      "title": "Garden notes",
+      "content": "The eggplants are finally flowering. I moved the pots under the mango tree because of the afternoon heat. Need to buy more potting soil this weekend.",
+      "tags": ["home", "garden"],
+      "writing_mode": "verbatim",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null },
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": null
+    },
+    {
+      "id": "E-22",
+      "vault": "VAULT-A",
+      "type": "diary",
+      "created_at": "2026-11-30T22:45:00+08:00",
+      "title": "Correction to the parade entry",
+      "content": "Correction to my 12 June 2024 entry: the parade was in Plaza Rizal, not near the town hall. The rest of that entry is accurate.",
+      "tags": ["correction", "memory"],
+      "writing_mode": "verbatim",
+      "access_policy": {
+        "owner_only": false,
+        "grants": [
+          { "beneficiary": "BEN-01", "available_from": null },
+          { "beneficiary": "BEN-02", "available_from": null },
+          { "beneficiary": "BEN-03", "available_from": null }
+        ],
+        "denies": []
+      },
+      "corrects_entry_id": "E-06"
+    }
+  ]
+}

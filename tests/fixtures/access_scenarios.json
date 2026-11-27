@@ -1,0 +1,132 @@
+{
+  "_meta": {
+    "fictional": true,
+    "notice": "All scenarios use the invented people and entries from fictional_entries.json. Expected decisions are specifications of required behaviour, not observed results.",
+    "task": "Kaneo Task 1.07",
+    "schema_version": "0.1-draft",
+    "reference_clock": "2026-12-01T09:00:00+08:00",
+    "allowed_decisions": ["ALLOW", "DENY", "REJECT", "ANSWER_WITHOUT_RESTRICTED_EVIDENCE"]
+  },
+  "scenarios": [
+    {
+      "id": "AS-01",
+      "requester": "BEN-01",
+      "action": "read_entry",
+      "target": "E-05",
+      "question": null,
+      "expected_decision": "ALLOW",
+      "rules": ["explicit_grant", "vault_released"],
+      "rationale": "BEN-01 has an explicit grant on E-05 and VAULT-A is released with a verified trigger.",
+      "response_constraint": null,
+      "excluded_evidence": []
+    },
+    {
+      "id": "AS-02",
+      "requester": "BEN-02",
+      "action": "read_entry",
+      "target": "E-05",
+      "question": null,
+      "expected_decision": "DENY",
+      "rules": ["deny_by_default"],
+      "rationale": "BEN-02 has no grant on E-05, so access is denied by default.",
+      "response_constraint": "generic_denial",
+      "excluded_evidence": []
+    },
+    {
+      "id": "AS-03",
+      "requester": "BEN-02",
+      "action": "read_entry",
+      "target": "E-07",
+      "question": null,
+      "expected_decision": "DENY",
+      "rules": ["deny_overrides_allow"],
+      "rationale": "E-07 grants BEN-02 and also explicitly denies BEN-02. The explicit deny overrides the grant.",
+      "response_constraint": "generic_denial",
+      "excluded_evidence": []
+    },
+    {
+      "id": "AS-04",
+      "requester": "BEN-03",
+      "action": "read_entry",
+      "target": "E-17",
+      "question": null,
+      "expected_decision": "ALLOW",
+      "rules": ["explicit_grant", "deny_scoped_to_listed_people"],
+      "rationale": "E-17 denies only BEN-01 and BEN-02. BEN-03's grant is unaffected.",
+      "response_constraint": null,
+      "excluded_evidence": []
+    },
+    {
+      "id": "AS-05",
+      "requester": "BEN-01",
+      "action": "read_entry",
+      "target": "E-08",
+      "question": null,
+      "expected_decision": "DENY",
+      "rules": ["release_date_not_reached"],
+      "rationale": "BEN-01's grant on E-08 starts 2030-08-30, which is after the reference clock.",
+      "response_constraint": "generic_denial",
+      "excluded_evidence": []
+    },
+    {
+      "id": "AS-06",
+      "requester": "BEN-02",
+      "action": "read_entry",
+      "target": "E-15",
+      "question": null,
+      "expected_decision": "ALLOW",
+      "rules": ["explicit_grant", "release_date_passed"],
+      "rationale": "BEN-02's grant on E-15 started 2025-12-01, which is before the reference clock.",
+      "response_constraint": null,
+      "excluded_evidence": []
+    },
+    {
+      "id": "AS-07",
+      "requester": "REQ-X",
+      "action": "read_entry",
+      "target": "E-01",
+      "question": null,
+      "expected_decision": "DENY",
+      "rules": ["unregistered_requester", "no_existence_disclosure"],
+      "rationale": "REQ-X is not a registered beneficiary. The response must be identical to the response for a non-existent entry.",
+      "response_constraint": "generic_denial",
+      "excluded_evidence": []
+    },
+    {
+      "id": "AS-08",
+      "requester": "BEN-01",
+      "action": "read_entry",
+      "target": "E-21",
+      "question": null,
+      "expected_decision": "DENY",
+      "rules": ["vault_not_released", "missed_checkins_insufficient"],
+      "rationale": "E-21 is in VAULT-B, which is sealed. It has 3 missed check-ins but no verified release trigger; missed check-ins alone are insufficient.",
+      "response_constraint": "generic_denial",
+      "excluded_evidence": []
+    },
+    {
+      "id": "AS-09",
+      "requester": "OWN-01",
+      "action": "update_policy",
+      "target": "E-03",
+      "question": null,
+      "expected_decision": "REJECT",
+      "rules": ["frozen_policy"],
+      "rationale": "VAULT-A's legacy policy is frozen, so the owner cannot change the policy of E-03.",
+      "response_constraint": null,
+      "excluded_evidence": []
+    },
+    {
+      "id": "AS-10",
+      "requester": "BEN-01",
+      "action": "ask_ai",
+      "target": "VAULT-A",
+      "question": "What did Mom write about her health?",
+      "expected_decision": "ANSWER_WITHOUT_RESTRICTED_EVIDENCE",
+      "rules": ["authorized_evidence_only", "no_existence_disclosure", "no_invented_memories"],
+      "rationale": "The only health-tagged entries are E-04 (owner only) and E-17 (BEN-01 denied). The answer must say no authorized entries were found, without hinting that restricted entries exist.",
+      "response_constraint": "no_authorized_evidence_message",
+      "excluded_evidence": ["E-04", "E-17"]
+    }
+  ]
+}
