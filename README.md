@@ -105,4 +105,4 @@ or text written with AI help is recorded in the [AI-use log](docs/ai-use-log.md)
 
 ## Task tracking
 
-Kaneo board: **[PLACEHOLDER: Kaneo link to be added by the lead developer]**
+Kaneo Task 1.04 (EM-4) — internal class board
