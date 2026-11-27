@@ -66,8 +66,17 @@ ENGRAM is a mobile-first AI-assisted personal diary system.
 - FastAPI /health endpoint works.
 - FastAPI /docs endpoint works.
 - Backend Pytest suite with /health tests (Step 5.5).
+- README with team, folders and conventions (Kaneo Task 1.02).
+- SQLite + SQLAlchemy database foundation with isolated tests (Step 5.6).
+- AI model selected by the team: GroqCloud – GPT-OSS 20B (`openai/gpt-oss-20b`), not yet tested.
 
 ## Current Task
-Step 5.6: SQLite + SQLAlchemy database foundation.
-Database config, engine, declarative Base, session factory, `get_db` dependency,
-and isolated database tests. No models, CRUD endpoints, AI, Prolog, or APL yet.
+Kaneo Task 1.04: Technology Stack and Development Environment (branch `docs/1.04-tech-stack`).
+- Status: Implementation and documentation prepared; Python–Prolog verification pending.
+- Prepared: stack decision note, setup guide, AI-use log entry, Python → SWI-Prolog
+  demo script and tests.
+- PENDING: Python–Prolog verification. SWI-Prolog 11.0.1 was installed, but antivirus
+  quarantined `swipl.exe`; a false-positive report has been submitted.
+- Do not run, restore, reinstall or whitelist `swipl.exe`, and do not change antivirus settings,
+  until the lead developer approves.
+- No AI Memory Assistant, diary models or access-control policies in this task.

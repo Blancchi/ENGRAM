@@ -31,7 +31,8 @@ CS 413 Programming Languages final project (project name: Alaala).
 - **Database:** SQLite (initial development)
 - **Logic programming:** SWI-Prolog (access rules)
 - **Custom language:** Alaala Policy Language (APL)
-- **AI model:** [add model and provider]
+- **AI model:** GroqCloud – GPT-OSS 20B (`openai/gpt-oss-20b`), selected but not yet
+  validated; see [docs/technology-stack-decision.md](docs/technology-stack-decision.md)
 - **Testing:** Pytest and API tests; physical Android phone for mobile testing
 
 ## Programming paradigms
@@ -70,10 +71,14 @@ git clone https://github.com/Blancchi/ENGRAM.git
 cd ENGRAM
 ```
 
-- **Backend:** [add the commands to create the virtual environment, install
-  dependencies and start the server]
-- **Mobile:** [add the commands to install dependencies and start Expo]
-- **Tests:** [add the pytest command]
+Full step-by-step instructions (tool versions, SWI-Prolog, troubleshooting):
+[docs/development-environment-setup.md](docs/development-environment-setup.md)
+
+- **Backend:** `cd backend`, `python -m venv .venv`, `.venv\Scripts\Activate.ps1`,
+  `python -m pip install -r requirements.txt`, `uvicorn app.main:app --reload`
+- **Mobile:** `cd mobile`, `npm ci`, `npx expo start`
+- **Tests:** from `backend/` with the venv active, `python -m pytest`
+- **Prolog demo:** from `backend/` with the venv active, `python scripts/prolog_demo.py`
 
 Never commit secrets, tokens, API keys or real diary records. Use fictional data only.
 
@@ -96,8 +101,8 @@ Example: `feat(2.05): add hash chain verification`
 ## Working with AI tools
 
 Development instructions for AI coding tools are in [`CLAUDE.md`](CLAUDE.md). Any code
-or text written with AI help is recorded in the AI-use log in `docs/`.
+or text written with AI help is recorded in the [AI-use log](docs/ai-use-log.md).
 
 ## Task tracking
 
-Kaneo board: [paste link here]
+Kaneo board: **[PLACEHOLDER: Kaneo link to be added by the lead developer]**
