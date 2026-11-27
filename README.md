@@ -100,4 +100,4 @@ or text written with AI help is recorded in the AI-use log in `docs/`.
 
 ## Task tracking
 
-Kaneo board: [paste link here]
+Kaneo board: https://msi.tail69002a.ts.net/dashboard/workspace/xPiITYDzF1wnSgCh8GdFGPM1BLOJuC8F/project/xqmdh7wo0l33i7lh3e415w0n/board
