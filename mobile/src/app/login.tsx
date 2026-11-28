@@ -14,7 +14,7 @@ export default function LoginScreen() {
       <TextBox placeholder="Username" value={username} onChangeText={setUsername} autoCapitalize="none" />
       <TextBox placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
       {/* TODO: call the backend login endpoint, store the session token */}
-      <Button label="Log in" onPress={() => router.replace('/home')} />
+      <Button label="Login" onPress={() => router.replace('/home')} />
       <Button label="Continue with Google" variant="secondary" />
       <View style={{ alignItems: 'center', gap: 4, marginTop: 8 }}>
         <Text style={{ color: WF.gray700 }}>Don&apos;t have account?</Text>
